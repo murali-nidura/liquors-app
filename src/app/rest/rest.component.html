@@ -1,0 +1,36 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                S.No
+            </th>
+            <th>
+                Name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let country of countries | paginate:{
+            itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+        }; let i=index">
+            <td>{{i+1}}</td>
+            <td><a href routerLink="rest" (click)="getCountryInfo(country.name.common)">{{country.name.common}}</a> </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        (pageChange)="onTableDataChange($event)">
+    </pagination-controls>
+</div>
+<ng-container>
+    {{countryName}}
+</ng-container>
+
+<table mat-table>
+
+</table>

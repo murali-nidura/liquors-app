@@ -1,0 +1,22 @@
+<ng-container *ngIf="totalCartValue>0">
+    <div>Your Cart Items!</div>
+</ng-container>
+<ng-container *ngIf="totalCartValue==0">
+    <div>No Items in your cart! Continue Shopping!</div>
+</ng-container>
+<ul>
+    <ng-container *ngFor="let liquor of getCart()">
+        <li class="liquor">
+            <img [src]="liquor.image" [alt]="liquor.name" width="100"/>
+            <p class="title">{{liquor.name | titlecase}}</p>
+            <p class="currency">{{liquor.price | currency:'INR'}}</p>
+            <button  (click)="removeFromCart(liquor)" class="removeCartButton">Remove From Cart</button>
+        </li>
+    </ng-container>
+</ul>
+<div></div>
+<div></div>
+<ng-container *ngIf="totalCartValue>0">
+    <div>Total Cart Value <b>{{totalCartValue| currency:'INR'}}</b></div>
+    <button  (click)="checkOut()" class="checkOutButton">Check Out</button>
+</ng-container>

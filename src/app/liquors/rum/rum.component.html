@@ -1,0 +1,11 @@
+<h3>Please select from variety of rums</h3>
+<ul>
+    <ng-container *ngFor="let rum of rums">
+        <li class="rum">
+            <img [src]="rum.image" [alt]="rum.name" width="100"/>
+            <p class="title">{{rum.name | titlecase}}</p>
+            <p class="currency">{{rum.price | currency:'INR'}}</p>
+            <button  (click)="addToCart(rum)" class="cartButton">Add to Cart</button>
+        </li>
+    </ng-container>
+</ul>

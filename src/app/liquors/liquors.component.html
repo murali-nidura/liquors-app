@@ -1,0 +1,15 @@
+<div>
+    <p>Choose Your Drink</p>
+    <ul>
+        <ng-container *ngFor="let liquor of liquors">
+            <li class="liquors">
+                <div class="images">
+                    <a (click)="loadLiquorComponent($event)">
+                        <img [name]="liquor.name" [src]="liquor.image" [alt]="liquor.name"/>
+                        <p class="title">{{liquor.name | titlecase}}</p>
+                    </a>
+                </div>
+            </li>
+        </ng-container>
+    </ul>
+</div>
