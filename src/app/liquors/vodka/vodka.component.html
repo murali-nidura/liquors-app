@@ -1,1 +1,14 @@
-<p>vodka works!</p>
+<h3>Please select from variety of vodkas</h3>
+<ul>
+    <ng-container *ngFor="let vodka of vodkas">
+        <li class="vodka">
+            <img [src]="vodka.image" [alt]="vodka.name" width="100"/>
+            <p class="title">{{vodka.name | titlecase}}</p>
+            <p class="currency">{{vodka.price | currency:'INR'}}</p>
+            <button  (click)="addToCart(vodka)" class="cartButton">Add to Cart</button>
+            <ng-container *ngIf="vodka.isInCart">
+                <p>Added to cart!</p>
+            </ng-container>
+        </li>
+    </ng-container>
+</ul>

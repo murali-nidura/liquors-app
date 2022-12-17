@@ -6,6 +6,9 @@
             <p class="title">{{rum.name | titlecase}}</p>
             <p class="currency">{{rum.price | currency:'INR'}}</p>
             <button  (click)="addToCart(rum)" class="cartButton">Add to Cart</button>
+            <ng-container *ngIf="rum.isInCart">
+                <p>Added to cart!</p>
+            </ng-container>
         </li>
     </ng-container>
 </ul>

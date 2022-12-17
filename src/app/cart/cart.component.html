@@ -10,6 +10,15 @@
             <img [src]="liquor.image" [alt]="liquor.name" width="100"/>
             <p class="title">{{liquor.name | titlecase}}</p>
             <p class="currency">{{liquor.price | currency:'INR'}}</p>
+            <!-- <p>Quantity: {{liquor.quantity}}</p> -->
+            <p>Quantity: <select (change)="calculateCartValue($event)" [(ngModel)]="liquor.quantity">
+                <!-- <option ngDefaultControl  value=1>1</option>
+                <option ngDefaultControl  value=2>2</option>
+                <option ngDefaultControl  value=3>3</option> -->
+                <!-- <option value="" disabled selected>Select</option> -->
+                <option ngDefaultControl  *ngFor="let i of quantityList"[ngValue]=i [selected]="1 == i">{{i}}</option>
+              </select>
+            </p>
             <button  (click)="removeFromCart(liquor)" class="removeCartButton">Remove From Cart</button>
         </li>
     </ng-container>

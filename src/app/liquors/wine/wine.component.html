@@ -1,1 +1,14 @@
-<p>wine works!</p>
+<h3>Please select from variety of wines</h3>
+<ul>
+    <ng-container *ngFor="let wine of wines">
+        <li class="wine">
+            <img [src]="wine.image" [alt]="wine.name" width="100"/>
+            <p class="title">{{wine.name | titlecase}}</p>
+            <p class="currency">{{wine.price | currency:'INR'}}</p>
+            <button  (click)="addToCart(wine)" class="cartButton">Add to Cart</button>
+            <ng-container *ngIf="wine.isInCart">
+                <p>Added to cart!</p>
+            </ng-container>
+        </li>
+    </ng-container>
+</ul>

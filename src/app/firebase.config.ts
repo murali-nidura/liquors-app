@@ -9,7 +9,9 @@ export const firebaseConfig = {
   projectId: "liquors-online",
   storageBucket: "liquors-online.appspot.com",
   messagingSenderId: "270026881083",
-  appId: "1:270026881083:web:cdd450d2835c7e6f24c41e"
+  appId: "1:270026881083:web:cdd450d2835c7e6f24c41e",
+  locationId: 'us-central1',
+  databaseURL: 'https://liquors-online-default-rtdb.firebaseio.com'
 };
 
 // Initialize Firebase

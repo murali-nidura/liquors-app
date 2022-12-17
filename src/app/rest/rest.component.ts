@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './rest.service';
+// import {Database, set, ref, update, onValue,remove} from '@angular/fire/database';
+import { getDatabase, ref, set } from 'firebase/database';
 
 @Component({
   selector: 'app-rest',
@@ -41,4 +43,15 @@ export class RestComponent implements OnInit {
   getCountryInfo(countryName: any) {
     this.countryName=countryName;
     }
+
+    // createInfo() {
+    //   //create data
+    //   const db = getDatabase();
+    // set(ref(db, 'users/' + 'TestUser'), {
+    //   username: 'Test User Name',
+    //   first_name: 'Test First Name',
+    //   last_name : 'Test Last Name' 
+    // }); 
+    // alert('user created!');
+    //   }
 }

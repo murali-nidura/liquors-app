@@ -4,6 +4,9 @@ export interface LoginForm{
 }
 
 export interface RegisterForm{
+    firstName: string,
+    lastName: string,
+    mobileNum?: number,
     email: string,
     password: string,
     confirm_password: string

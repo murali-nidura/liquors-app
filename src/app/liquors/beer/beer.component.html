@@ -1,11 +1,14 @@
 <h3>Please select from variety of beers</h3>
 <ul>
     <ng-container *ngFor="let beer of beers">
-        <li class="beer">
+        <li>
             <img [src]="beer.image" [alt]="beer.name" width="100"/>
             <p class="title">{{beer.name | titlecase}}</p>
             <p class="currency">{{beer.price | currency:'INR'}}</p>
             <button  (click)="addToCart(beer)" class="cartButton">Add to Cart</button>
+            <ng-container *ngIf="beer.isInCart">
+                <p>Added to cart!</p>
+            </ng-container>
         </li>
     </ng-container>
 </ul>

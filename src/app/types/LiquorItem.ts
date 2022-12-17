@@ -1,5 +1,7 @@
 export interface LiquorItem{
     name: string,
     image: string,
-    price: number
+    price: number,
+    isInCart?:boolean,
+    quantity?:number
 }

@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
     RegisterComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class AuthModule { }

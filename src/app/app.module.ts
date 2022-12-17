@@ -15,6 +15,7 @@ import { MatTableModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthModule } from './auth/auth.module';
+import { RestModule } from './rest/rest.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AuthModule } from './auth/auth.module';
     HttpClientModule,
     NgxPaginationModule,
     FormsModule,
-    AuthModule
+    AuthModule,
+    RestModule
   ],
   providers: [],
   bootstrap: [AppComponent]

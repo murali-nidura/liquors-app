@@ -12,22 +12,26 @@ export class RumService {
       {
         name : "Bacardi Superior Rum",
         image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFlh7lU1mxeKZgaGrwn20kULWhORdeRzlNvQ&usqp=CAU",
-        price: 1500
+        price: 1500,
+        quantity: 0
       },
       {
         name : "Oka Bay Dark Rum",
         image : "https://luxurycolumnist.com/wp-content/uploads/2022/01/oak-bay-dark-rum-533x800.jpg",
-        price : 2000
+        price : 2000,
+        quantity: 0
       },
       {
         name : "Don Q Gold Rum",
         image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLiq84mHrSj9zj7-SRpIP85m4uF68mc0k3Tw&usqp=CAU",
-        price : 1600
+        price : 1600,
+        quantity: 0
       },
       {
         name : "Sailor Serry Navy Rum",
         image : "https://luxurycolumnist.com/wp-content/uploads/2022/01/Sailor_Jerry_Spiced_Navy_Rum-530x800.jpg",
-        price : 1800
+        price : 1800,
+        quantity: 0
       }
     ];
   }
