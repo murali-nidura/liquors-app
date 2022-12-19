@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { LoginForm, RegisterForm } from '../types/Auth';
-// import { getDatabase, ref, set } from 'firebase/database';
+import { getDatabase, onValue, ref, set } from 'firebase/database';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,7 @@ export class AuthService {
   passwordMatch: boolean = true;
   isAuthenticated: boolean = false;
   loggedInUserFirstName: string='';
+  user: any;
 
   login(form: LoginForm) {
     if (this.isLoading)
@@ -24,7 +25,8 @@ export class AuthService {
         // Signed in 
         // const user = userCredential.user;
         // ...
-
+        this.user= this.getUserInfo(userCredential.user.uid);
+        this.loggedInUserFirstName = this.user.firstName;
         this.isAuthenticated = true;
         this.router.navigate(['']);
       })
@@ -53,7 +55,7 @@ export class AuthService {
         this.isLoading = true;
         // console.log(userCredential);
         //save user details to db
-        // this.saveUserDetails(form);
+        this.saveUserDetails(form, userCredential.user.uid);
         //
         this.isAuthenticated = true;
         alert('User Registered Successfully! Please Login!');
@@ -81,4 +83,28 @@ export class AuthService {
     });
   }
 
+  saveUserDetails(form: RegisterForm, uid: string) {
+    //create data
+    const db = getDatabase();
+    set(ref(db, 'users/' + uid), {
+      firstName: form.firstName,
+      lastName: form.lastName,
+      email: form.email,
+      mobile: form.mobileNum
+    });
+    // alert('user created!');
+  }
+
+  getUserInfo(uid: string): any {
+    const db = getDatabase();
+    const userInfo = ref(db,'users/'+uid);
+    data : Object;
+    onValue(userInfo, (snapshot)=>{
+      this.user= snapshot.val();
+    })
+    return this.user;
+  }
+
 }
+ 
+

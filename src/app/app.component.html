@@ -15,7 +15,7 @@
         <a class="mx-4" routerLink="/register">Register</a>
     </ng-container>
     <ng-container *ngIf="isAuthenticated()">
-      <div>{{getLoggedInUser()}}</div>
+      <a class="mx-4" routerLink="/profile">Welcome {{getLoggedInUser()}}</a>
       <a class="mx-4" routerLink="/cart">My Cart</a>
       <button class="mx-4" (click)="logout()">Logout</button>
     </ng-container>

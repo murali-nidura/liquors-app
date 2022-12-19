@@ -24,21 +24,21 @@ export class RegisterComponent implements OnInit {
   passwordMatch: boolean = true;
   submit() {
     this.authService.register(this.form);
-    this.saveUserDetails(this.form);
+    // this.saveUserDetails(this.form);
   }
   isLoading() {
     return this.authService.isLoading;
   }
 
-  saveUserDetails(form: RegisterForm) {
-    //create data
-    const db = getDatabase();
-    set(ref(db, 'users/' + form.mobileNum), {
-      firstName: form.firstName,
-      lastName: form.lastName,
-      email: form.email
-    });
-    // alert('user created!');
-  }
+  // saveUserDetails(form: RegisterForm) {
+  //   //create data
+  //   const db = getDatabase();
+  //   set(ref(db, 'users/' + form.mobileNum), {
+  //     firstName: form.firstName,
+  //     lastName: form.lastName,
+  //     email: form.email
+  //   });
+  //   // alert('user created!');
+  // }
 
 }
