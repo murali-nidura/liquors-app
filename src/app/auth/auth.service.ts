@@ -65,6 +65,9 @@ export class AuthService {
         const errorCode = error.code;
         const errorMessage = error.message;
         this.isAuthenticated = false;
+        if (errorCode=="auth/invalid-email"){
+          alert('Please provide valid email address')
+        }
         if (errorCode == "auth/email-already-in-use") {
           alert('User Already Registered! Please Login!');
           this.router.navigate(['login']);
@@ -77,6 +80,7 @@ export class AuthService {
     const auth = getAuth();
     signOut(auth).then(() => {
       this.isAuthenticated = false;
+      this.loggedInUserFirstName='';
       this.router.navigate(['login']);
     }).catch((error) => {
 
